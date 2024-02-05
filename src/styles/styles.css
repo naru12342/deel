@@ -1,0 +1,370 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
+  body {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* ボックスサイズ計算のため */
+  }
+  
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 背景を最背面に配置 */
+  
+}
+
+.background2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #9bf1e8 0%, rgb(162, 220, 206) 18%, #6382D1 100%);
+  z-index: -1; /* 背景を最背面に配置 */
+}
+.content {
+  color: rgba(0, 0, 0, 0.5); /* 黒色の文字を半透明に設定 */
+  position: relative;
+  padding-bottom: 10px; /* .chat-container の高さに合わせて調整 */
+  z-index: 1; /* 背景より前面に配置 */
+  /* 必要に応じたスタイリング */
+}
+.conversation-history {
+  max-height: calc(100vh - 108px); /* 例: ヘッダー、入力欄などを除いた画面の高さ */
+  overflow-y: auto;
+}
+
+.chat-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+    background-color: #a7a7a792; /* 背景色はお好みで */
+    padding: 10px; /* 内側の余白 */
+    box-shadow: 0 -2px 5px rgba(121, 121, 121, 0.2); /* 上部に影をつける */
+  }
+  .input-container textarea {
+    flex-grow: 1; /* テキストエリアが残りのスペースをすべて占めるように設定 */
+    color: rgba(255, 255, 255, 0.8); 
+    width: calc(100% - 10px); /* ボタンとパディングの幅を引いた幅に設定 */
+    height: 20px; /* 初期の高さを1行分に設定（行の高さに応じて調整） */
+    line-height: 20px; /* 行の高さを設定 */
+    margin-right: 20px; /* ボタンとの間隔 */
+    overflow-y: hidden; /* 縦方向のスクロールバーを非表示に */
+    background-color:rgb(111, 120, 128);
+    border-radius: 7px 
+ }
+  .chat-container label {
+    display: block; /* ラベルをブロック要素に */
+    margin-bottom: 3px; /* 下部の余白 */
+  }
+  
+  .chat-container button {
+    background-color: rgba(73, 83, 86, 0.353); /* ボタンの背景色 */
+    color: white; /* ボタンのテキスト色 */
+    padding: 10px 10px; /* ボタンのパディング */
+    border: none; /* ボーダーなし */
+    border-radius: 7px; /* 角の丸み */
+    cursor: pointer; /* カーソルをポインタに */
+    margin-bottom: 5px;
+  }
+  
+  .chat-container button:hover {
+    background-color: #c5c6caba; /* ホバー時の背景色 */
+  }
+  .input-container {
+    display: flex;
+    /* align-items: center; */
+    align-items: flex-end; /* アイテムを底辺に合わせる */
+    width: 90%; /* コンテナの幅を画面幅いっぱいに設定 */
+    padding: 0 10px; /* コンテナの左右にパディングを設定（お好みで） */
+}
+  
+ 
+ .input-container button {
+  display: flex; /* フレックスボックスを有効化 */
+  align-items: center; /* 縦方向の中央揃え */
+  justify-content: center; /* 横方向の中央揃え */
+  height: 29px; /* ボタンの高さ（お好みで調整） */
+}
+
+.delete-button {
+ 
+  /* その他のスタイリング（必要に応じて） */
+  border: none; /* 枠線を削除 */
+  padding: 5px; /* パディングを追加 */
+  cursor: pointer; /* カーソルをポインタに */
+  border-radius: 6px; 
+  color: rgba(255, 255, 255, 0.379); /* 黒色の文字を半透明に設定 */
+  font-size: 15px; 
+  /* padding-left: 20px; */
+}
+.select-button {
+  
+  /* その他のスタイリング（必要に応じて） */
+  border: none; /* 枠線を削除 */
+  padding: 5px; /* パディングを追加 */
+  margin-left: 10px; 
+  cursor: pointer; /* カーソルをポインタに */
+  border-radius: 6px; 
+  color: rgba(255, 255, 255, 0.393); /* 黒色の文字を半透明に設定 */
+  /* padding-left: 20px; */
+}
+.button-container2 {
+  display: flex;
+  justify-content: center; /* 横方向の中央揃え */
+  align-items: center; /* 縦方向の中央揃え */
+  height: 100vh; /* コンテナの高さをビューポートの高さに合わせる */
+
+}
+
+.NewChat-button {
+  background: #e3ffe322; box-shadow: 0px 0.30000001192092896px 3px rgba(97, 95, 95, 0.25); /* 背景色を設定 */
+  /* その他のスタイリング（必要に応じて） */
+  border: none; /* 枠線を削除 */
+  padding: 7px;/* パディングを追加 */
+  cursor: pointer; /* カーソルをポインタに */
+  border-radius: 6px; 
+  color: rgba(248, 247, 247, 0.72); /* 黒色の文字を半透明に設定 */
+ 
+}
+
+.NewChat-button2 {
+  background: #f1fff524; box-shadow: 0px 0.30000001192092896px 3px rgba(0, 0, 0, 0.088); /* 背景色を設定 */
+  /* その他のスタイリング（必要に応じて） */
+  border: none; /* 枠線を削除 */
+  padding: 10px; /* パディングを追加 */
+  cursor: pointer; /* カーソルをポインタに */
+  border-radius: 6px; 
+  color: rgba(0, 0, 0, 0.329); /* 黒色の文字を半透明に設定 */
+  font-size:10px
+ 
+}
+.NewChat-button3 {
+  background: #ffffffce; box-shadow: 0px 0.30000001192092896px 3px rgba(97, 95, 95, 0.25); /* 背景色を設定 */
+  /* その他のスタイリング（必要に応じて） */
+  border: none; /* 枠線を削除 */
+  padding: 7px;/* パディングを追加 */
+  cursor: pointer; /* カーソルをポインタに */
+  border-radius: 6px; 
+  color: rgba(0, 0, 0, 0.552); /* 黒色の文字を半透明に設定 */
+ 
+}
+
+.transparent-bold-text {
+  color: rgba(0, 0, 0, 0.13);/*色で半透明のテキスト */
+  font-weight: bold; /* 太文字 */
+  font-size: 40px; 
+  /* その他必要に応じたスタイリング */
+}
+.custom-shadow {
+  box-shadow: 0 1px 10px rgba(45, 45, 45, 0.015); /* x-offset, y-offset, blur-radius, color */
+}
+.talk-text2 {
+  color: rgba(253, 252, 252, 0.803); /* 黒色で半透明のテキスト */
+  font-size: 20px; 
+  white-space: pre-line; /* 改行を保持 */
+  /* その他必要に応じたスタイリング */
+}
+.talk-text {
+  color: rgba(7, 7, 7, 0.306); /* 黒色で半透明のテキスト */
+  font-size: 12px; 
+  white-space: pre-line; /* 改行を保持 */
+  
+  /* その他必要に応じたスタイリング */
+}
+.center-container {
+  height: 35vh; 
+
+  justify-content: center; /* 水平方向の中央揃え */
+  align-items: center; /* 垂直方向の中央揃え */
+  text-align: center; /* テキストを中央揃えに */
+}
+
+
+.message-box {
+  border: 1px solid #000000; /* 枠線の色と太さを設定 */
+  
+}
+.bot-message-container {
+  position: relative; /* 位置決めの基準点とする */
+  padding-left: 50px; /* アイコンのスペースを作る */
+}
+
+.icon-bot {
+  position: absolute; /* 絶対位置 */
+  top: 10px; /* コンテナの上端からの位置 */
+  left: 10px; /* コンテナの左端からの位置 */
+  transform: translate(-130%, 0); /* アイコンを左に完全に移動 */
+  
+  width: 30px; /* アイコンの幅 */
+  height: 30px; /* アイコンの高さ */
+  border-radius: 50%; /* 丸い形状にする */
+  background-color: #ffffff36; /* アイコンの背景色 */
+  background-size: cover; /* 背景画像をカバーする */
+  /* その他のスタイリング */
+}
+
+.icon-bot2 {
+  position: absolute; /* 絶対位置 */
+  top: 0%; /* コンテナの上から50%の位置 */
+  right: -26px; /* 右端から-40pxの位置（アイコンの半分の幅外に配置） */
+  transform: translateY(-120% , 0); /* アイコンを縦方向の中央に配置 */
+
+  width: 20px; /* アイコンの幅 */
+  height: 20px; /* アイコンの高さ */
+  border-radius: 50%; /* 丸い形状にする */
+  background-color: #003827a9; /* アイコンの背景色 */
+  /* その他のスタイリング */
+}
+
+.user-message {
+  border-radius: 6px; 
+ background-color: #243634;  box-shadow: 0px 0.30000001192092896px 3px rgba(97, 95, 95, 0.25); /* 背景色を設定 */
+ position: relative; /* アイコンの位置決めの基点とする */
+ margin: 10px 30px 10px 7px; /* 上マージン、右マージン（0で省略）、下マージン、左マージン */
+  border: none; /* 枠線を削除 *//* ユーザーメッセージの背景色を設定 */
+  display: flex;
+  align-items: center; /* アイコンとテキストを中央揃えに */
+
+}
+.bot-message {
+  border-radius: 6px; 
+  background-color: rgba(181, 181, 181, 0.22);  box-shadow: 0px 0.30000001192092896px 3px rgba(0, 0, 0, 0); /* 背景色を設定 */
+  position: relative; /* 位置決めの基準点とする */
+  margin: 10px 35px 10px -15px;
+  /* background-color: #fff1e610; AIメッセージの背景色を設定 */
+  border: none; /* 枠線を削除 */
+}
+
+.message-box p {
+  color: rgba(255, 255, 255, 0.879); /* 文字色を白に設定 */
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  padding: 10px; 
+}
+.day-border {
+  border: 1px solid rgba(255, 255, 255, 0.159); /* 薄いグレーの枠線 */
+  border: 0.5px solid rgba(255, 255, 255, 0.159); /* 薄いグレーの枠線 */
+}
+
+ .header {
+  background-color: #fffbfb30; /* 背景色はお好みで */
+  padding: 10px; /* 内側の余白 */
+  box-shadow: 0 -2px 5px rgba(121, 121, 121, 0.304); /* 上部に影をつける */
+    padding: 8px 16px; /* px-2 py-2 に相当 */
+    display: flex; /* flex */
+    align-items: center; /* flexの中央揃え */
+    /* その他必要に応じたスタイル */
+  }
+  
+.toumei{
+  background-color: #fffbfb11; /* 背景色はお好みで */
+  color: rgb(57, 71, 71); 
+}
+.toumei2{
+  background-color: #fffbfb34; /* 背景色はお好みで */
+  color: rgb(57, 71, 71); 
+}
+.Ptoumei{
+ 
+  color: rgba(255, 255, 255, 0.544); 
+}
+.smallfont0{
+  font-size: 10px; 
+}
+.smallfont{
+  font-size: 15px; 
+}
+.smallfont2{
+  font-size: 11px; 
+}
+.smallfont3{
+  font-size: 30px; 
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.modal {
+  background-color: rgba(255, 255, 255, 0.84);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent; /* 背景を透明に */
+  z-index: 1000; /* 必要に応じてz-indexを設定 */
+}
+.clock {
+  background-color: transparent;
+}
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* CSSのデフォルト動作ですが、JavaScriptで制御しています */
+}
+.event-text {
+  white-space: nowrap; /* テキストを1行に保持 */
+  overflow: hidden; /* コンテナからはみ出た内容を非表示に */
+  text-overflow: clip; /* テキストが溢れた場合に切り取る */
+}
+
+/* 1日のデザイン */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px 0;
+  position: relative; /* これを追加 */
+}
+
+
+.hour {
+  border-top: 1px solid #cccccc2b;
+  position: relative;
+  padding: 5px 0;
+}
+
+.hour:first-child {
+  border-top: 0;
+}
+
+.event {
+  position: absolute;
+  left: 60px; /* 時間軸からの距離 */
+  top: 0;
+  background-color: lightblue;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.no-events {
+  text-align: center;
+  padding-top: 20px; /* 時刻軸の上部に適切なスペースを確保 */
+}
