@@ -1,6 +1,7 @@
 const getEventStyle = (event) => {
     // "HH:mm"形式の文字列を分単位に変換する関数
     const timeToMinutes = (time) => {
+        if (!time) return 0; // timeがnullまたはundefinedの場合、0を返す
         const [hours, minutes] = time.split(":").map(Number);
         return hours * 60 + minutes;
     };

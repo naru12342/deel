@@ -7,11 +7,12 @@ const Conversation = require('./Conversation'); // Conversation モデルのイ�
 const cors = require('cors'); // CORS ミドルウェアのインポート
 const { v4: uuidv4 } = require('uuid');
 const app = express();
-
+const PORT = process.env.PORT || 3002;
 const webPush = require('web-push');
 const schedule = require('node-schedule');
 const Subscription = require('./models/Subscription'); // 作成したサブスクリプションモデルをインポート
 const path = require('path');
+
 
 
 
@@ -29,12 +30,10 @@ const publicVapidKey = 'BC0Tz3K4gR3OnrEmOaazA6thVx9OL00tH7AqIVEjhjXwHkP2sIzJQAW9
 const privateVapidKey = 'vOh9jsCP7avllw5pmfR-O-xUfI9E-C-9A_OKNltVCHU';
 webPush.setVapidDetails('mailto:example@yourdomain.org', publicVapidKey, privateVapidKey);
 
-app.use(express.static(path.join(__dirname, '/Users/itounasa/Desktop/卒業制作/react4/my-diary-app/build ')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/Users/itounasa/Desktop/卒業制作/react4/my-diary-app/build  ', 'index.html'));
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
 });
-const PORT = process.env.PORT || 3002;
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
 // 保存された会話を取得するエンドポイント
 app.get('/api/conversations', async (req, res) => {
@@ -161,11 +160,18 @@ schedule.scheduleJob('0 10 * * *', () => {
   sendNotifications();
 });
 
-// 通知を送信する関数
+// 通知を送信する関数cd 
 function sendNotification(subscription, message) {
   webPush.sendNotification(subscription, JSON.stringify({ title: 'テスト', message }))
       .catch(error => console.error(error));
 }
+
+// Reactの静的ファイルを配信
+app.use(express.static(path.join(__dirname, '/Users/itounasa/Desktop/卒業制作/react4/my-diary-app/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/Users/itounasa/Desktop/卒業制作/react4/my-diary-app/build', 'index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

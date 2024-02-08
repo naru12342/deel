@@ -128,7 +128,7 @@
   background: #e3ffe322; box-shadow: 0px 0.30000001192092896px 3px rgba(97, 95, 95, 0.25); /* 背景色を設定 */
   /* その他のスタイリング（必要に応じて） */
   border: none; /* 枠線を削除 */
-  padding: 7px;/* パディングを追加 */
+  padding: 6px;/* パディングを追加 */
   cursor: pointer; /* カーソルをポインタに */
   border-radius: 6px; 
   color: rgba(248, 247, 247, 0.72); /* 黒色の文字を半透明に設定 */

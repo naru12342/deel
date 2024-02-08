@@ -61,7 +61,7 @@ useEffect(() => {
       setIsModalOpen(true); // モーダルを表示
   
       // サマリーをデータベースに保存するためのリクエストを送信
-      await axios.post('http://localhost:3002/api/conversations/saveSummary', {
+      await axios.post('https://agile-anchorage-23875-a593ab30dd30.herokuapp.com/api/conversations/saveSummary', {
         conversationId,
         summary,
       });
@@ -101,7 +101,7 @@ const Gocalender = () => {
         newConversations.push({ type: 'bot', text: responseText });
         setConversations(newConversations); // AIの返答を会話履歴に追加
         // 会話をサーバーに送信し、新しい会話IDを取得
-        const response = await axios.post('http://localhost:3002/api/conversations', { messages: newConversations, conversationId });
+        const response = await axios.post('https://agile-anchorage-23875-a593ab30dd30.herokuapp.com/api/conversations', { messages: newConversations, conversationId });
        // 新しい会話が始まった場合、そのIDを状態にセット
        if (!conversationId) {
         setConversationId(response.data.conversationId);

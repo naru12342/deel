@@ -11,6 +11,8 @@ import ContextWrapper from './context/ContextWrapper'; // 正確なパスに注�
 
 
 function App() {
+
+  
   useEffect(() => {
     // Service Workerを登録
     if ('serviceWorker' in navigator) {

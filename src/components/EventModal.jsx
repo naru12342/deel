@@ -33,7 +33,7 @@ const [eventEndTime, setEventEndTime] = useState(null);
   useEffect(() => {
     const fetchSavedConversations = async () => {
       try {
-        const response = await axios.get('http://localhost:3002/api/conversations');
+        const response = await axios.get('https://agile-anchorage-23875-a593ab30dd30.herokuapp.com/api/conversations');
         const filteredConversations = response.data.filter(
           (conv) => dayjs(conv.createdAt).format("YYYY-MM-DD") === daySelected.format("YYYY-MM-DD")
         );
@@ -101,7 +101,7 @@ const [eventEndTime, setEventEndTime] = useState(null);
   // 特定の会話を消去する関数
   const handleDeleteConversation = async (conversationId) => {
     try {
-      await axios.delete(`http://localhost:3002/api/conversations/${conversationId}`);
+      await axios.delete(`https://agile-anchorage-23875-a593ab30dd30.herokuapp.com/api/conversations/${conversationId}`);
       setSavedConversations(savedConversations.filter(conv => conv._id !== conversationId));
       setSelectedConversation(null); // これによりモーダルが閉じる
     } catch (error) {

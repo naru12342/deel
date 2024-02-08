@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Modal from './modal'; // 既存のModalコンポーネントをインポート
 import calenderIcon from './icon/calenderIcon.svg';
-import NewChatIcon from './icon/NewChatIcon.svg';
 import homeIcon from './icon/homeIcon.svg';
 import { getEventStyle } from './getEventStyle'; 
 import dayjs from "dayjs";
@@ -93,55 +92,6 @@ const modalStyle = {
   const handleNavigateToChat = () => {
     navigate('/chat', { state: { role: selectedRole } });
   };
-      const roleSelectionContent = (
-        <div style={{...modalStyle, backgroundColor: 'rgba(255, 255, 255, 0.8)'}}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-            {/* 各キャラクターのボタンを追加、マージンとパディングで間隔を設定 */}
-            <button style={{ textAlign: 'left', borderBottom: '1px solid rgba(255, 255, 255, 0.5)',fontSize: '15px', marginBottom: '10px', paddingBottom: '5px' }} onClick={() => handleSelectRole('A')}>
-  <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-    {/* アイコン */}
-    <img src={`${process.env.PUBLIC_URL}/Eicon.png`} alt="Eアイコン" style={{ width: '30px', height: '30px', marginRight: '5px' }} />
-    <div>
-      <div>エンジニアの25歳男性</div>
-      <div style={{ fontSize: '10px', color: 'gray' }}>
-        今日は何か進展ありましたか？つまずいたことあれば教えてください。一つひとつ分解して一緒に解決しましょう。
-      </div>
-    </div>
-  </div>
-</button>
-
-
-
-<button style={{ textAlign: 'left', borderBottom: '1px solid rgba(255, 255, 255, 0.5)',fontSize: '15px', marginBottom: '10px', paddingBottom: '5px' }} onClick={() => handleSelectRole('B')}>
-  <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-    {/* アイコン */}
-    <img src={`${process.env.PUBLIC_URL}/Gicon.png`} alt="Gアイコン" style={{ width: '30px', height: '30px', marginRight: '5px' }} />
-    <div>
-      <div>ギャル22歳女性</div>
-      <div style={{ fontSize: '10px', color: 'gray' }}>
-       kkk
-         </div>
-    </div>
-  </div>
-</button> 
-
-<button style={{ textAlign: 'left', borderBottom: '1px solid rgba(255, 255, 255, 0.5)',fontSize: '15px', marginBottom: '10px', paddingBottom: '5px' }} onClick={() => handleSelectRole('C')}>
-  <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-    {/* アイコン */}
-    <img src={`${process.env.PUBLIC_URL}/Ficon.png`} alt="Gアイコン" style={{ width: '30px', height: '30px', marginRight: '5px' }} />
-    <div>
-      <div>娘を愛でる父</div>
-      <div style={{ fontSize: '10px', color: 'gray' }}>
-      今日も頑張ったじゃないか！偉いぞ！生きてくれているだけで尊いからな。無理はするなよ。
-         </div>
-    </div>
-  </div>
-</button> 
-
-   <button style={{ textAlign: 'left', borderBottom: '1px solid rgba(255, 255, 255, 0.5)', marginBottom: '10px', paddingBottom: '5px' }} onClick={handleRandomSelect}>キャラクターランダム選択</button>
-          </div>
-        </div>
-      );
       
       const confirmationModalContent = (
         <div style={{
