@@ -2,6 +2,10 @@
   "name": "my-diary-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "v21.6.1",
+    "npm": "10.2.4"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -26,7 +30,8 @@
     "redux": "^5.0.0",
     "uuid": "^9.0.1",
     "web-push": "^3.6.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -53,9 +58,10 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.3.5"
   }
+  
 }
