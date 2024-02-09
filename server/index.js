@@ -1,5 +1,6 @@
 //index.js
-require('dotenv').config();
+require('dotenv').config({ path: './server/.env' });
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -24,11 +25,15 @@ mongoose.connect(mongoDBUrl)
   .then(() => console.log('MongoDB connected...'))
   .catch(err => console.log(err));
 // VAPIDキーを設定
-const publicVapidKey = 'BC0Tz3K4gR3OnrEmOaazA6thVx9OL00tH7AqIVEjhjXwHkP2sIzJQAW9-zrsd6bWu-jqxPOLpfbUqCiqWuO_VoM';
-const privateVapidKey = 'vOh9jsCP7avllw5pmfR-O-xUfI9E-C-9A_OKNltVCHU';
-webPush.setVapidDetails('mailto:example@yourdomain.org', publicVapidKey, privateVapidKey);
+// 環境変数からVAPIDキーを読み込む
+const publicVapidKey = process.env.PUBLIC_VAPID_KEY;
+const privateVapidKey = process.env.PRIVATE_VAPID_KEY;
 
-
+webPush.setVapidDetails(
+  'mailto:your-email@example.com',
+  publicVapidKey,
+  privateVapidKey
+);
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
