@@ -13,15 +13,12 @@ RUN npm install
 
 
 # アプリケーションのソースコードをコピー
-COPY . .
-
+COPY . /app/
 # フロントエンドのビルド
 RUN npm run build
 
 # アプリケーションがリッスンするポートを指定
 EXPOSE 3000
-
-
 
 # アプリケーションを起動するコマンド
 CMD ["node", "server/index.js"]
