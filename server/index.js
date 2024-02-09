@@ -177,4 +177,3 @@ app.listen(PORT, () => {
 
 
 
-path.join(__dirname, 'build')
