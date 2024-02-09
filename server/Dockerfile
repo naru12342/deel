@@ -1,20 +1,21 @@
-# Node.jsのバージョンを指定する
+# ベースイメージの指定
 FROM node:14
 
-# アプリケーションの作業ディレクトリを設定
-WORKDIR /usr/src/app
+# 作業ディレクトリの設定
+WORKDIR /app
 
-# アプリケーションの依存関係ファイルをコピー
+# 依存関係ファイルをコピー
 COPY package*.json ./
 
-# npmパッケージをインストール
+# 依存関係のインストール
 RUN npm install
 
 # アプリケーションのソースコードをコピー
-COPY . .
+COPY . /app/
 
 # アプリケーションがリッスンするポートを指定
 EXPOSE 3000
 
 # アプリケーションを起動するコマンド
 CMD ["node", "index.js"]
+
