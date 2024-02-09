@@ -17,5 +17,4 @@ COPY . /app/
 EXPOSE 3000
 
 # アプリケーションを起動するコマンド
-CMD ["node", "index.js"]
-
+CMD ["node", "server/index.js"]
