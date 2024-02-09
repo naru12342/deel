@@ -10,11 +10,18 @@ COPY package*.json ./
 # 依存関係のインストール
 RUN npm install
 
+
+
 # アプリケーションのソースコードをコピー
-COPY . /app/
+COPY . .
+
+# フロントエンドのビルド
+RUN npm run build
 
 # アプリケーションがリッスンするポートを指定
 EXPOSE 3000
+
+
 
 # アプリケーションを起動するコマンド
 CMD ["node", "server/index.js"]
