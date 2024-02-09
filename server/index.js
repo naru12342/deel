@@ -14,8 +14,6 @@ const Subscription = require('./models/Subscription'); // 作成したサブス�
 const path = require('path');
 
 
-
-
 app.use(express.json()); // expressの組み込みbody-parserを使用
 app.use(cors()); // すべてのオリジンからのリクエストを許可
 
@@ -179,3 +177,4 @@ app.listen(PORT, () => {
 
 
 
+path.join(__dirname, 'build')

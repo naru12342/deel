@@ -33,7 +33,7 @@ const [eventEndTime, setEventEndTime] = useState(null);
   useEffect(() => {
     const fetchSavedConversations = async () => {
       try {
-        const response = await axios.get('https://agile-anchorage-23875-a593ab30dd30.herokuapp.com/api/conversations');
+        const response = await axios.post('https://agile-anchorage-23875-a593ab30dd30.herokuapp.com/api/conversations');
         const filteredConversations = response.data.filter(
           (conv) => dayjs(conv.createdAt).format("YYYY-MM-DD") === daySelected.format("YYYY-MM-DD")
         );
